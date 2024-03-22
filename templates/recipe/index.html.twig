@@ -7,12 +7,16 @@
 {% block body %}
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-							Donec blandit efficitur dictum. Quisque commodo libero leo, quis euismod libero varius vitae. 
-							Nulla vel ornare nisi, eget viverra sem. Duis maximus pellentesque tempor.
+									Donec blandit efficitur dictum. Quisque commodo libero leo, quis euismod libero varius vitae. 
+									Nulla vel ornare nisi, eget viverra sem. Duis maximus pellentesque tempor.
 	</p>
 
 	<ul>
-		<li><a href="{{ url('recipe.show', {id:32,slug:'pate-bolognaise'}) }}">pate bolognaise</a></li>
+		{% for recipe in recipes%}
+			<li>
+				<a href="{{ url('recipe.show', {id:32,slug: recipe.slug }) }}">{{ recipe.title }}</a>
+			</li>
+		{% endfor %}
 	</ul>
 
 {% endblock %}
